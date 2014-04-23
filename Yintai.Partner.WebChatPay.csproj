@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{629B148F-3801-4739-8AFA-27BFF3E85991}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yintai.Partner.WebChatPay</RootNamespace>
+    <AssemblyName>Yintai.Partner.WebChatPay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\Assembly\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\Json60r1\Bin\Net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\HttpClientUtil.cs" />
+    <Compile Include="Common\WebUtil.cs" />
+    <Compile Include="Common\XmlSerializerHelper.cs" />
+    <Compile Include="Dto\BaseEntity.cs" />
+    <Compile Include="Dto\Request\AddressRequest.cs" />
+    <Compile Include="Dto\Request\OrderQueryRequest.cs" />
+    <Compile Include="Dto\Request\DeliverNotifyRequest.cs" />
+    <Compile Include="Dto\Request\PayRequest.cs" />
+    <Compile Include="Dto\Request\UpdateFeedBackRequest.cs" />
+    <Compile Include="Dto\Response\AddressResponse.cs" />
+    <Compile Include="Dto\Response\AlarmResponse.cs" />
+    <Compile Include="Dto\Response\FeedbackResponse.cs" />
+    <Compile Include="Dto\Response\OrderQueryResponse.cs" />
+    <Compile Include="Dto\Response\PayNotifyResponse.cs" />
+    <Compile Include="Dto\Response\ResponseBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TenpayLib\CheckRequestHandler.cs" />
+    <Compile Include="TenpayLib\ClientResponseHandler.cs" />
+    <Compile Include="TenpayLib\MD5Util.cs" />
+    <Compile Include="TenpayLib\RequestHandler.cs" />
+    <Compile Include="TenpayLib\ResponseHandler.cs" />
+    <Compile Include="TenpayLib\TenpayHttpClient.cs" />
+    <Compile Include="TenpayLib\TenpayUtil.cs" />
+    <Compile Include="Worker\AddressWorker.cs" />
+    <Compile Include="Worker\AlarmWorker.cs" />
+    <Compile Include="Worker\FeedBackWorker.cs" />
+    <Compile Include="WxPay\CommonUtil.cs" />
+    <Compile Include="Worker\DeliverNotifyWorker.cs" />
+    <Compile Include="WxPay\MD5SignUtil.cs" />
+    <Compile Include="WxPay\MD5Util.cs" />
+    <Compile Include="Worker\OrderQueryWorker.cs" />
+    <Compile Include="WxPay\SDKRuntimeException.cs" />
+    <Compile Include="WxPay\SHA1Util.cs" />
+    <Compile Include="Config\WxPayConfig.cs" />
+    <Compile Include="WxPay\WxPayHelper.cs" />
+    <Compile Include="Worker\WxPayNotifyWorker.cs" />
+    <Compile Include="Worker\WxPayWorker.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
